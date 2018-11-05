@@ -1,0 +1,28 @@
+---
+- name: Citus Health Integration Engine (CHIE) CCF Containers
+  hosts: all
+  vars_files:
+    - ../conf/chie.secrets.conf.yml
+    - ../conf/chie.common.conf.yml
+  tasks:
+    - name: Clone Citus Health Integration Engine (CHIE) CCF Containers
+      git:
+       name: https://{{ chp_github_account | urlencode }}:{{ chp_github_account_token | urlencode }}@github.com/CitusHealth/citus-health-integration-engine-appliance-ccf-containers.git 
+       dest: '{{citus_health_containers_path}}'
+
+    - name: Create Appliance Admin User common runtime config directory
+      file:
+        path: '{{ appliance_admin_user_common_runtime_config_directory }}'
+        state: directory
+
+    - name: Go to Traefik directory and install Traefik routing CCF Container service
+      command: chdir={{ traefik_ccf_container_path }} ccfmake start
+
+    - name: Go to Wellsky CPR PLUS FHIR Facade directory and install Wellsky CPR PLUS FHIR Facade CCF container service
+      command: chdir={{ wellsky_cpr_fhir_facade_path }} ccfmake start
+
+    - name: Go to FHIR Sync directory and install FHIR Sync CCF container service
+      command: chdir={{ fhir_sync_ccf_container_path }} ccfmake start
+
+    - name: Go to Nextgen Mirth Connect directory and install Nextgen Mirth Connect CCF container service
+      command: chdir={{ nextgen_mirth_connect_path }} ccfmake configure

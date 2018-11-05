@@ -1,0 +1,103 @@
+---
+- name: Citus Health Integration Engine (CHIE) Filing Center
+  hosts: all
+  vars_files:
+    - ../conf/chie.secrets.conf.yml
+    - ../conf/chie.common.conf.yml
+  pre_tasks:
+    - name: Create filing center group
+      group:
+        name: "{{ appliance_filing_center_user }}"
+        state: present
+
+    - name: Create filing center user
+      user:
+        name: "{{ appliance_filing_center_user }}"
+        password: "{{ appliance_filing_center_linux_passwd }}"
+        groups: "{{ appliance_filing_center_user }}"
+        append: true
+
+    - name: Get useful .vimrc for filing center user
+      get_url: url=https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim dest=/home/{{ appliance_filing_center_user }}/.vimrc
+
+    - name: Configure Filing Center (davfs2) to not use locks
+      lineinfile: path=/etc/davfs2/davfs2.conf regexp="^#use_locks" line="use_locks 0"
+
+    - name: Configure Filing Center (davfs2) secrets
+      lineinfile: path=/etc/davfs2/secrets line="{{ item.webdav_url }} {{ item.webdav_user }} {{ item.webdav_password }}" state=present
+      with_items: "{{ filing_centers }}"
+
+    - name: Ensure Filing Center (davfs2) paths are present
+      file: path={{ item.fstab_path }} state=directory
+      with_items: "{{ filing_centers }}"
+      
+    - name: Set uid bit on mount.davfs to allow editing in user mode
+      file: path=/usr/sbin/mount.davfs state=file mode="u=rws,g=rx,o=rx"
+
+    - name: Mount Filing Center (davfs2) directories, with automount on startup but set to mount only on first access
+      mount: name={{ item.fstab_path }} src={{ item.webdav_url }} state=mounted fstype=davfs opts=rw,user,uid={{item.fstab_uid}},gid={{item.fstab_gid}},noauto,x-systemd.automount
+      with_items: "{{ filing_centers }}"
+
+    - name: Add Filing Center users into davfs2 group
+      user: name={{ item.fstab_uid }} groups=davfs2 append=yes
+      with_items: "{{ filing_centers }}"
+
+    - name: Citus Health Cups Server Integration
+      apt: 
+        name: "{{ cups_packages_to_install }}"
+
+    - name: Citus Health Cups Server Configuration update
+      replace:
+        path: /etc/cups/cupsd.conf
+        regexp: 'Listen localhost:631'
+        replace: 'Listen 631'
+        backup: yes
+
+    - name: Enabling remote administration of cups Server
+      command: sudo /usr/sbin/cupsctl --remote-admin
+
+    - name: Syncing data from cups directory to webdav mounted folder
+      cron:
+        name: "Syncing cups data"
+        minute: 0
+        job: "/usr/bin/rsync -avz {{ item.cups_pdf_print_storage_location }} {{ item.cups_pdf_print_storage_user_webdav_location }}"
+      with_items: "{{ cups_server  }}" 
+    
+
+  roles:
+    - bertvv.samba
+
+  post_tasks:
+    - name: Open Samba ports
+      ufw: >
+        rule=allow
+        port={{ item }}
+        proto=tcp
+      with_items:
+        - 139
+        - 445
+    - name: Open Cups ports
+      ufw: >
+        rule=allow
+        port={{ item }}
+        proto=tcp
+      with_items:
+        - 631
+        
+      
+        
+
+    - name: Create symlink to samba log file so the FC user can review logs
+      file: 
+        state: link
+        src: "{{ samba_log }}" 
+        dest: "/home/{{ appliance_filing_center_user }}/samba.log" 
+
+    - name: Create symlink to davfs2 mount point (usually from home directory of user)
+      file: 
+        state: link
+        src: "{{ item.fstab_path }}" 
+        dest: "{{ item.symlink }}" 
+        owner: "{{ item.fstab_uid }}"
+        group: "{{ item.fstab_gid }}"
+      with_items: "{{ filing_centers }}"

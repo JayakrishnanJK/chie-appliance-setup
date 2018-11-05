@@ -1,0 +1,61 @@
+appliance_setup_path: /etc/appliance-setup-framework
+
+docker_users: ["{{ appliance_admin_user }}"]
+# See https://github.com/bertvv/ansible-role-samba/blob/docker-tests/test.yml for all vars
+
+filing_centers:
+  - webdav_url: "https://sync.citushealth.com/account/{{chp_filing_center_account_id}}"
+    webdav_user: "{{ chp_filing_center_account_id }}"
+    webdav_password: "{{ chp_filing_center_account_password }}"
+    fstab_path: "/mnt/filing-center-primary"
+    fstab_uid: "{{ appliance_filing_center_user }}"
+    fstab_gid: "{{ appliance_filing_center_user }}"
+    symlink: "/home/{{ appliance_filing_center_user }}/primary"
+cups_server:
+  - cups_etc_location: "/etc/cups"
+    cups_name: "cups"
+    cups_pdf_print_storage_location: "/var/spool/cups-pdf/ANONYMOUS"
+    cups_pdf_print_storage_user_webdav_location: "/mnt/filing-center-primary/To\\ Citus\\ Health\\ Print\\ Center/"
+    cpus_pdf_filesystem_fstype: "ext4"
+cups_packages_to_install:
+  - cups
+  - cups-pdf
+  - cups-common
+  - cups-browsed
+  - cups-client
+  - printer-driver-all
+  - cups-ppdc
+
+samba_netbios_name: "{{ ansible_hostname }}"
+samba_workgroup: "{{ appliance_type }}"
+
+samba_load_homes: false
+samba_load_printers: false
+samba_create_varwww_symlinks: false
+
+samba_map_to_guest: Never
+samba_log: /var/log/samba.log
+samba_log_size: 60000
+samba_log_level: '3 passdb:5 auth:10 winbind:2 '
+
+samba_shares:
+  - name: "{{ appliance_admin_user }}_home"
+    comment: "{{ appliance_admin_user }} Home Folder"
+    path: "/home/{{ appliance_admin_user }}"
+    owner: "{{ appliance_admin_user }}"
+    browseable: yes
+    read_only: no
+    guest_ok: no
+    write_list: "{{ appliance_admin_user }}"
+    group: "{{ appliance_admin_user }}"
+
+dragonfly_mta_insecure: false
+dragonfly_mta_securetransfer: true
+dragonfly_mta_starttls: true
+
+appliance_admin_user_common_runtime_config_directory: "/home/{{ appliance_admin_user }}/.ccf/etc"
+citus_health_containers_path: /opt/citus-health-containers
+wellsky_cpr_fhir_facade_path: /opt/citus-health-containers/wellsky-cpr-fhir-facade
+fhir_sync_ccf_container_path: /opt/citus-health-containers/fhir-sync-node-red
+nextgen_mirth_connect_path: /opt/citus-health-containers/nextgen-mirth-connect
+traefik_ccf_container_path: /opt/citus-health-containers/traefik
