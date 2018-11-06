@@ -1,5 +1,3 @@
-# Welcome to the Citus Health Integration Engine (CHIE)
-
 The CHIE helps connect Citus Health cloud servers with customers' Electronic Health Records (EHR), Revenue Cycle Management (RCM), and other systems behind private firewalls. It acts as a connection engine and gateway between Citus Health applications in the cloud and customers' local systems.
 
 ## Server software requirements
@@ -43,18 +41,17 @@ After bootstrap.sh is complete, exit the shell.
 The Citus Health Customer Success Team will supply you with a chie.secrets.conf.yml configuration file via secure e-mail or other mechanism. Copy the contents of that file into the CHIE server.
 Login to the server as chieadmin and run:
 
-    sudo vi /etc/citus-health-integration-engine/conf/chie.secrets.conf.yml
+    sudo vi /etc/appliance-setup-framework/conf/chie.secrets.conf.yml
 
 In addition, if you are using WellSky's CPR+ integration:
 
-    sudo vi /etc/citus-health-integration-engine/conf/wellsky-cprplus.secrets.conf.json
-Once you've done that, the /etc/citus-health-integration-engine/conf will look something like this:
+    sudo vi /etc/appliance-setup-framework/conf/wellsky-cprplus.secrets.conf.json
+Once you've done that, the /etc/appliance-setup-framework/conf will look something like this:
 
-     > ls -al /etc/citus-health-integration-engine/conf    
+     > ls -al /etc/appliance-setup-framework/conf    
         drwxr-xr-x 2 root root 4096 Nov  6 07:42 .
 	    drwxr-xr-x 7 root root 4096 Nov  6 07:41 ..
 	    -rwxr-xr-x 1 root root 2252 Nov  6 07:41 chie.common.conf.yml
-	    -rw-r--r-- 1 root root   78 Nov  6 07:41 chie.domain.traefik.conf.json
 	    -rwxr-xr-x 1 root root 1103 Nov  6 07:41 chie.secrets.conf-tmpl.yml
 	    -rwxr-xr-x 1 root root   56 Nov  6 07:41 .gitignore
 	    -rw-r--r-- 1 root root 1222 Nov  6 07:41 prometheus-osquery-exporter-config.yaml
@@ -69,7 +66,7 @@ The wellsky-cprplus.secrets.conf-tmpl.json file is a template (sample), and well
 The bin/setup.sh utility will run all numbered playbooks in numerical order.
 Install software
 
-    cd /etc/citus-health-integration-engine
+    cd /etc/appliance-setup-framework
     bash bin/setup.sh
 
 After setup is completed, reboot the server (Docker setup will be incomplete without a reboot):
