@@ -17,14 +17,13 @@ Setup a Windows Hyper-V, VMware, VirtualBox, or other hypervisor VM:
 
 First, install Ubuntu 18.04.1 LTS or above minimal server on your preferred hypervisor. The smaller the footprint, the safer and more secure the system. You can use most of the defaults, but provide the following defaults when you are asked to make choices:
 
- - Hostname: chie.
- - Default User Full Name: CHIE Admin
- - Default User Name: chieadmin
- - Default User Password: chieAdminDefault!
- - Disk Partitioning: Guided - use entire disk
- - PAM Configuration: Install security updates automatically
- - Software Packages: OpenSSH is the only package that must be installed
-   by default
+ - Hostname: *chie*.
+ - Default User Full Name: *CHIE Admin*
+ - Default User Name: *chieadmin*
+ - Default User Password: *chieAdminDefault!*
+ - Disk Partitioning: *Guided - use entire disk*
+ - PAM Configuration: *Install security updates automatically*
+ - Software Packages: *OpenSSH is the only package that must be installed by default*
 NOTE: the user you create is called the admin user below.
 ## Prepare your CHIE appliance for our software
 After installation is completed, log into the server as user chieadmin.
@@ -37,7 +36,7 @@ After bootstrap.sh is complete, exit the shell.
 
 ## Download the core software and prepare for CHIE containers
 
-    sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration-engine-appliance-setup-framework /etc/citus-health-integration-engine
+    sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration-engine-appliance-setup-framework /etc/appliance-setup-framework
 
 ## Setup your account-specific CHIE variables
 
