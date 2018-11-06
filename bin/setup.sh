@@ -19,7 +19,7 @@ sudo ansible-galaxy install bertvv.samba
 title "Finish setting up shell"
 zsh -i -c setupsolarized dircolors.256dark
 
-export ASF_HOME=/etc/appliance-setup-framework
+export ASF_HOME=/etc/citus-health-integration-engine
 export PLAYBOOKS_SRC=$ASF_HOME/playbooks
 title "Run all numbered playbooks for $(whoami)"
 for playbook in `ls $PLAYBOOKS_SRC/*.ansible-playbook.yml | egrep "^$PLAYBOOKS_SRC/[0-9]" | sort -V`; do 
