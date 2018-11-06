@@ -2,8 +2,8 @@
 - name: Citus Health Integration Engine (CHIE) CCF Containers
   hosts: all
   vars_files:
-    - ../conf/chie.secrets.conf.yml
-    - ../conf/chie.common.conf.yml
+    - ../conf/appliance.secrets.conf.yml
+    - ../conf/appliance.common.conf.yml
   tasks:
     - name: Clone Citus Health Integration Engine (CHIE) CCF Containers
       git:

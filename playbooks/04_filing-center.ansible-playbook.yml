@@ -2,8 +2,8 @@
 - name: Citus Health Integration Engine (CHIE) Filing Center
   hosts: all
   vars_files:
-    - ../conf/chie.secrets.conf.yml
-    - ../conf/chie.common.conf.yml
+    - ../conf/appliance.secrets.conf.yml
+    - ../conf/appliance.common.conf.yml
   pre_tasks:
     - name: Create filing center group
       group:
