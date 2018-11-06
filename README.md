@@ -48,7 +48,7 @@ Login to the server as chieadmin and run:
 
 In addition, if you are using WellSky's CPR+ integration:
 
-    sudo vi /etc/citus-health-integration-engine/conf/wellsky-cprplus.secrets.conf.yml
+    sudo vi /etc/citus-health-integration-engine/conf/wellsky-cprplus.secrets.conf.json
 Once you've done that, the /etc/citus-health-integration-engine/conf will look something like this:
 
      > ls -al /etc/citus-health-integration-engine/conf    
@@ -70,7 +70,7 @@ The wellsky-cprplus.secrets.conf-tmpl.json file is a template (sample), and well
 The bin/setup.sh utility will run all numbered playbooks in numerical order.
 Install software
 
-    cd /etc/appliance-setup-framework
+    cd /etc/citus-health-integration-engine
     bash bin/setup.sh
 
 After setup is completed, reboot the server (Docker setup will be incomplete without a reboot):
