@@ -41,7 +41,7 @@ After bootstrap.sh is complete, exit the shell.
 The Citus Health Customer Success Team will supply you with a chie.secrets.conf.yml configuration file via secure e-mail or other mechanism. Copy the contents of that file into the CHIE server.
 Login to the server as chieadmin and run:
 
-    sudo vi /etc/appliance-setup-framework/conf/chie.secrets.conf.yml
+    sudo vi /etc/appliance-setup-framework/conf/appliance.secrets.conf.yml
 
 In addition, if you are using WellSky's CPR+ integration:
 
@@ -49,19 +49,19 @@ In addition, if you are using WellSky's CPR+ integration:
 Once you've done that, the /etc/appliance-setup-framework/conf will look something like this:
 
      > ls -al /etc/appliance-setup-framework/conf    
-        drwxr-xr-x 2 root root 4096 Nov  6 07:42 .
-	    drwxr-xr-x 7 root root 4096 Nov  6 07:41 ..
-	    -rwxr-xr-x 1 root root 2252 Nov  6 07:41 chie.common.conf.yml
-	    -rwxr-xr-x 1 root root 1103 Nov  6 07:41 chie.secrets.conf-tmpl.yml
-	    -rwxr-xr-x 1 root root   56 Nov  6 07:41 .gitignore
-	    -rw-r--r-- 1 root root 1222 Nov  6 07:41 prometheus-osquery-exporter-config.yaml
-	    -rw-r--r-- 1 root root 2935 Nov  6 07:41 ubuntu-18.04-netboot.iso-preseed.cfg
-	    -rw-r--r-- 1 root root  163 Nov  6 07:42 wellsky-cprplus.secrets.conf.json
-	    -rw-r--r-- 1 root root  163 Nov  6 07:41 wellsky-cprplus.secrets.conf-tmpl.json
+        drwxr-xr-x 2 root root 4096 Nov  6 14:59 .
+        drwxr-xr-x 7 root root 4096 Nov  6 14:35 ..
+        -rwxr-xr-x 1 root root 2252 Nov  6 14:35 appliance.common.conf.yml
+        -rw-r--r-- 1 root root 1115 Nov  6 09:53 appliance.secrets.conf.yml
+        -rwxr-xr-x 1 root root 1103 Nov  6 14:35 appliance.secrets.templ.conf.yml
+        -rwxr-xr-x 1 root root   56 Nov  6 14:35 .gitignore
+        -rw-r--r-- 1 root root 1222 Nov  6 14:35 prometheus-osquery-exporter-config.yaml
+        -rw-r--r-- 1 root root 2935 Nov  6 14:35 ubuntu-18.04-netboot.iso-preseed.cfg
+        -rw-r--r-- 1 root root  168 Nov  6 09:03 wellsky-cprplus.secrets.conf.json
+        -rw-r--r-- 1 root root  163 Nov  6 14:35 wellsky-cprplus.secrets.conf-tmpl.json
 
-The chie.secrets.conf-tmpl.yml file is a template (sample), and the chie.secrets.conf.yml will be the file given to you by the Citus Health Customer Success Team.
-The chie.domain.traefik.conf.json you can specify the domain name you wish to publish the application
-The wellsky-cprplus.secrets.conf-tmpl.json file is a template (sample), and wellsky-cprplus.secrets.conf.json you need to create using the variables in the template file and you need to specify the wellsky-cprplus db host, db name , user name and password in this file. 
+The **appliance.secrets.templ.conf.yml** file is a template (sample), and the **appliance.secrets.conf.yml** will be the file given to you by the Citus Health Customer Success Team.
+The **wellsky-cprplus.secrets.conf-tmpl.json** file is a template (sample), and **wellsky-cprplus.secrets.conf.json** you need to create using the variables in the template file and you need to specify the wellsky-cprplus db host, db name , user name and password in this file. 
 
 The bin/setup.sh utility will run all numbered playbooks in numerical order.
 Install software
