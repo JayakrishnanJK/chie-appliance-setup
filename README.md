@@ -22,7 +22,7 @@ First, install Ubuntu 18.04.1 LTS or above minimal server on your preferred hype
  - Disk Partitioning: *Guided - use entire disk*
  - PAM Configuration: *Install security updates automatically*
  - Software Packages: *OpenSSH is the only package that must be installed by default*
-NOTE: the user you create is called the admin user below.
+ - NOTE: the user you create is called the admin user below.
 ## Prepare your CHIE appliance for our software
 After installation is completed, log into the server as user chieadmin.
 Install the following core utilities:
@@ -34,7 +34,7 @@ After bootstrap.sh is complete, exit the shell.
 
 ## Setup your account-specific CHIE variables
 
-The Citus Health Customer Success Team will supply you with a chie.secrets.conf.yml configuration file via secure e-mail or other mechanism. Copy the contents of that file into the CHIE server.
+The Citus Health Customer Success Team will supply you with a appliance.secrets.conf.yml configuration file via secure e-mail or other mechanism. Copy the contents of that file into the CHIE server.
 Login to the server as chieadmin and run:
 
     sudo vi /etc/appliance-setup-framework/conf/appliance.secrets.conf.yml
@@ -56,8 +56,8 @@ Once you've done that, the /etc/appliance-setup-framework/conf will look somethi
         -rw-r--r-- 1 root root  168 Nov  6 09:03 wellsky-cprplus.secrets.conf.json
         -rw-r--r-- 1 root root  163 Nov  6 14:35 wellsky-cprplus.secrets.conf-tmpl.json
 
-The **appliance.secrets.templ.conf.yml** file is a template (sample), and the **appliance.secrets.conf.yml** will be the file given to you by the Citus Health Customer Success Team.
-The **wellsky-cprplus.secrets.conf-tmpl.json** file is a template (sample), and **wellsky-cprplus.secrets.conf.json** you need to create using the variables in the template file and you need to specify the wellsky-cprplus db host, db name , user name and password in this file. 
+* The **appliance.secrets.templ.conf.yml** file is a template (sample), and the **appliance.secrets.conf.yml** will be the file given to you by the Citus Health Customer Success Team.
+* The **wellsky-cprplus.secrets.conf-tmpl.json** file is a template (sample), and **wellsky-cprplus.secrets.conf.json** you need to create using the variables in the template file and you need to specify the wellsky-cprplus db host, db name , user name and password in this file. 
 
 The bin/setup.sh utility will run all numbered playbooks in numerical order.
 Install software
