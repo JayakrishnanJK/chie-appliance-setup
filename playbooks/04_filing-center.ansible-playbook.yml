@@ -52,6 +52,13 @@
         regexp: 'Listen localhost:631'
         replace: 'Listen 631'
         backup: yes
+    - name : Shared the default printer for all users
+      replace:
+        path: /etc/cups/printers.conf
+        regexp: 'Shared No'
+        replace: 'Shared Yes'
+        backup: yes
+
 
     - name: Enabling remote administration of cups Server
       command: sudo /usr/sbin/cupsctl --remote-admin
