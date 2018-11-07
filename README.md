@@ -28,13 +28,9 @@ After installation is completed, log into the server as user chieadmin.
 Install the following core utilities:
 
     sudo apt update && sudo apt install net-tools curl -y && \
-    curl https://raw.githubusercontent.com/shah/appliance-setup-framework/master/bin/bootstrap.sh | bash
+    curl https://raw.githubusercontent.com/CitusHealth/citus-health-integration-engine-appliance-setup-framework/master/bin/bootstrap.sh | bash
 
 After bootstrap.sh is complete, exit the shell.
-
-## Download the core software and prepare for CHIE containers
-
-    sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration-engine-appliance-setup-framework /etc/appliance-setup-framework
 
 ## Setup your account-specific CHIE variables
 
