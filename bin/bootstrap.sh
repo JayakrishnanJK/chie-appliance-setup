@@ -23,6 +23,8 @@ sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration
 title "Prepare appliance secrets configuration"
 sudo cp $ASF_HOME/conf/appliance.secrets.conf-tmpl.yml $ASF_HOME/conf/appliance.secrets.conf.yml
 
+title "Prepare wellsky cprplus configuration"
+sudo cp $ASF_HOME/conf/wellsky-cprplus.secrets.conf-tmpl.json $ASF_HOME/conf/wellsky-cprplus.secrets.conf.json
 title "Provision ARA setup playbook"
 sudo ansible-playbook -i "localhost," -c local $ASF_HOME/playbooks/ara.ansible-playbook.yml
 
