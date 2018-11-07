@@ -49,14 +49,14 @@ Once you've done that, the /etc/appliance-setup-framework/conf will look somethi
         drwxr-xr-x 7 root root 4096 Nov  6 14:35 ..
         -rwxr-xr-x 1 root root 2252 Nov  6 14:35 appliance.common.conf.yml
         -rw-r--r-- 1 root root 1115 Nov  6 09:53 appliance.secrets.conf.yml
-        -rwxr-xr-x 1 root root 1103 Nov  6 14:35 appliance.secrets.tmpl.conf.yml
+        -rwxr-xr-x 1 root root 1103 Nov  6 14:35 appliance.secrets.conf-tmpl.yml
         -rwxr-xr-x 1 root root   56 Nov  6 14:35 .gitignore
         -rw-r--r-- 1 root root 1222 Nov  6 14:35 prometheus-osquery-exporter-config.yaml
         -rw-r--r-- 1 root root 2935 Nov  6 14:35 ubuntu-18.04-netboot.iso-preseed.cfg
         -rw-r--r-- 1 root root  168 Nov  6 09:03 wellsky-cprplus.secrets.conf.json
         -rw-r--r-- 1 root root  163 Nov  6 14:35 wellsky-cprplus.secrets.conf-tmpl.json
 
-* The **appliance.secrets.tmpl.conf.yml** file is a template (sample), and the **appliance.secrets.conf.yml** will be the file given to you by the Citus Health Customer Success Team.
+* The **appliance.secrets.conf-tmpl.yml** file is a template (sample), and the **appliance.secrets.conf.yml** will be the file given to you by the Citus Health Customer Success Team.
 * The **wellsky-cprplus.secrets.conf-tmpl.json** file is a template (sample), and **wellsky-cprplus.secrets.conf.json** customer need to modify the values based on the wellsky-cprplus db host, db name , username and password. Need to make sure Variables in the template file must be same as template file 
 
 The bin/setup.sh utility will run all numbered playbooks in numerical order.
