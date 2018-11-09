@@ -89,18 +89,3 @@ appliance_filing_center_samba_passwd is the share's password
 ## Getting started with CHIE's CPR+ FHIR Server
 CPR+ FHIR Server will be automatically installed and will start to syncronize new patient to Citus health FHIR server.  To verify the changes in the Citus Health Application, please login to the application as a staff. The The Citus Health Customer Success Team will supply the Application URL and the credentials.
 
-## Batteries Included
-
-The ASF comes with everything you need to run a secure, minimally hardended, appliance for custom on-premise or cloud software. That includes: 
-  -  Base Ubuntu 18.04 LTS with automatic security updates turned on
-  -  UFW and fail2ban 
-  - OpenSSH 
-  - ZSH with Oh My ZSH! and Antigen 
-  - Ansible and ARA
- -  Docker with Container Configuration Framework and docker-gen 
- -  osQuery
- -  Outbound SMTP relay via DragonFly MTA (dma) and mailutils, no   incoming e-mails are allowed though
- -  Python and PIP Samba with admin
- -  home available as a share prometheus-node-exporter
- -  prometheus-osquery-exporter
- -  htop, jsonnet, jq
