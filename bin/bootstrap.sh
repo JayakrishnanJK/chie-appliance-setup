@@ -18,7 +18,7 @@ sudo ansible-galaxy install robertdebock.ara
 
 export ASF_HOME=/etc/appliance-setup-framework
 title "Download distribution into $ASF_HOME"
-sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration-engine-appliance-setup-framework.git $ASF_HOME
+sudo git clone --recurse https://github.com/CitusHealth/citus-health-integration-engine-appliance-setup.git $ASF_HOME
 
 title "Prepare appliance secrets configuration"
 sudo cp $ASF_HOME/conf/appliance.secrets.conf-tmpl.yml $ASF_HOME/conf/appliance.secrets.conf.yml
