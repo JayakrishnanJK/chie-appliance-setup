@@ -2,12 +2,12 @@
 
 ## Server software requirements
 
-Ubuntu 18.04 LTS minimal server or similar Linux distribution on a virtual or physical machine is required. Unless you're an expert Linux admin with Ansible skills, use the 64-bit Ubuntu 18.04 "Bionic Beaver" mini.iso netboot image or 64-bit Ubuntu 18.04 Server image in case netboot will not work in your environment. The mini.io netboot creates the smallest footprint server so it's the most secure and requires minimal hardening for security.
+Ubuntu [18.04 LTS minimal](https://help.ubuntu.com/community/Installation/MinimalCD) server or similar Linux distribution on a virtual or physical machine is required. Unless you're an expert Linux admin with [Ansible](https://www.ansible.com/) skills, use the [64-bit Ubuntu 18.04 "Bionic Beaver" mini.iso](http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso) netboot image or [64-bit Ubuntu 18.04 Server](https://www.ubuntu.com/download/server) image in case netboot will not work in your environment. The mini.io netboot creates the smallest footprint server so it's the most secure and requires minimal hardening for security.
 
 Setup a Windows Hyper-V, VMware, VirtualBox, or other hypervisor VM:  
 
- - RAM: minimum 2048 megabytes, preferably 4096 megabytes
- -  Storage:   minimum 32 gigabytes, preferably 256 gigabytes 
+ - RAM: minimum 4096 megabytes
+ - Storage:   minimum 32 gigabytes, preferably 256 gigabytes 
  - Network: Accessible  outbound to the Internet (both IPv4 and IPv6), inbound access not required
  - Firewall Route: The publically accessible IP should point to  this server, a Linux firewall is automatically managed by CHIE
 
@@ -76,15 +76,13 @@ The CHIE has automated support for the Citus Health Filing Center ("FC"). By def
 You can connect your Windows PC inside your network to the CHIE Appliance using:
 
     net use F: \\chie\filing_center
-The user name and password are provided in the chie.secrets.conf.yml file:
+The user name and password are provided in the appliance.secrets.conf.yml file:
 appliance_filing_center_user is the share's username
 
 appliance_filing_center_samba_passwd is the share's password
 
 ## Getting started with CHIE's Virtual Printer
-
-## TODO: Add CUPS printers that will save files into the FC.
-
+A default Virtual Printer has already been installed automatically during the CHIE setup process. To set up the printer in your pc follows the instruction given in the link [How to set up a virtual printer?](https://docs.citushealth.com/overview/cupssetup/).
 
 ## Getting started with CHIE's CPR+ FHIR Server
 CPR+ FHIR Server will be automatically installed and will start to syncronize new patient to Citus health FHIR server.  To verify the changes in the Citus Health Application, please login to the application as a staff. The The Citus Health Customer Success Team will supply the Application URL and the credentials.
