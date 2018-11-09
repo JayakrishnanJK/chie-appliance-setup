@@ -1,4 +1,4 @@
-The CHIE helps connect Citus Health cloud servers with customers' Electronic Health Records (EHR), Revenue Cycle Management (RCM), and other systems behind private firewalls. It acts as a connection engine and gateway between Citus Health applications in the cloud and customers' local systems.
+
 
 ## Server software requirements
 
