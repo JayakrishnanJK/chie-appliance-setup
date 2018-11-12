@@ -14,7 +14,7 @@ filing_centers:
 cups_server:
   - cups_etc_location: "/etc/cups"
     cups_name: "cups"
-    cups_pdf_print_storage_location: "/var/spool/cups-pdf/ANONYMOUS"
+    cups_pdf_print_storage_location: "/var/spool/cups-pdf/ANONYMOUS/*"
     cups_pdf_print_storage_user_webdav_location: "/mnt/filing-center-primary/To\\ Citus\\ Health\\ Print\\ Center/"
     cpus_pdf_filesystem_fstype: "ext4"
 cups_packages_to_install:
