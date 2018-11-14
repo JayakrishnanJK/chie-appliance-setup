@@ -4,7 +4,7 @@ docker_users: ["{{ appliance_admin_user }}"]
 # See https://github.com/bertvv/ansible-role-samba/blob/docker-tests/test.yml for all vars
 
 filing_centers:
-  - webdav_url: "https://sync.citushealth.com/account/{{chp_filing_center_account_id}}"
+  - webdav_url: "https://{{ chp_filing_center_url }}/account/{{chp_filing_center_account_id}}"
     webdav_user: "{{ chp_filing_center_account_id }}"
     webdav_password: "{{ chp_filing_center_account_password }}"
     fstab_path: "/mnt/filing-center-primary"
