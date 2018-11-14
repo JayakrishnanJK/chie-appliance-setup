@@ -7,7 +7,7 @@
   tasks:
     - name: Clone Citus Health Integration Engine (CHIE) CCF Containers
       git:
-       name: https://{{ chp_github_account | urlencode }}:{{ chp_github_account_token | urlencode }}@github.com/CitusHealth/citus-health-integration-engine-appliance-ccf-containers.git 
+       name: https://{{ chp_github_account | urlencode }}:{{ chp_github_account_token | urlencode }}@github.com/https://github.com/CitusHealthIntegrationEngine/chie-ccf-container.git
        dest: '{{citus_health_containers_path}}'
 
     - name: Create Appliance Admin User common runtime config directory
