@@ -26,5 +26,9 @@
 
     - name: Go to Nextgen Mirth Connect directory and install Nextgen Mirth Connect CCF container service
       command: chdir={{ nextgen_mirth_connect_path }} ccfmake configure
+    
+    - name: Go to Prometheus directory and install Prometheus CCF container service
+      command: chdir={{ prometheus_ccf_container_path }} ccfmake start
+
     - name: Go to Portainer directory and install Portainer to manage the dockers installaed in the system
       command: chdir={{ portainer_ccf_container_path }} ccfmake start

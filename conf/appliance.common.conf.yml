@@ -63,4 +63,5 @@ wellsky_cpr_fhir_facade_path: /opt/citus-health-containers/wellsky-cpr-fhir-faca
 fhir_sync_ccf_container_path: /opt/citus-health-containers/fhir-sync-node-red
 nextgen_mirth_connect_path: /opt/citus-health-containers/nextgen-mirth-connect
 traefik_ccf_container_path: /opt/citus-health-containers/traefik
+prometheus_ccf_container_path: /opt/citus-health-containers/prometheus
 portainer_ccf_container_path: /opt/citus-health-containers/portainer
