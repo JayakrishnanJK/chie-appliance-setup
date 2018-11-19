@@ -24,10 +24,14 @@ title "Prepare appliance secrets configuration"
 sudo cp $ASF_HOME/conf/appliance.secrets.conf-tmpl.yml $ASF_HOME/conf/appliance.secrets.conf.yml
 
 title "Prepare wellsky cprplus configuration"
-sudo cp $ASF_HOME/conf/wellsky-cprplus.secrets.conf-tmpl.json $ASF_HOME/conf/wellsky-cprplus.secrets.conf.json
+sudo cp $ASF_HOME/conf/wellsky-cprplus.secrets.conf-tmpl.jsonnet $ASF_HOME/conf/wellsky-cprplus.secrets.conf.jsonnet
+
+title "Prepare wellsky fhirsync configuration"
+sudo cp $ASF_HOME/conf/wellsky-fhir-sync.conf-tmpl.jsonnet $ASF_HOME/conf/wellsky-fhir-sync.conf.jsonnet
 
 title "Prepare appliance domain for traefik label configuration"
 sudo cp $ASF_HOME/conf/appliance.domain.conf-tmpl.json $ASF_HOME/conf/appliance.domain.conf.json
+
 
 title "Provision ARA setup playbook"
 sudo ansible-playbook -i "localhost," -c local $ASF_HOME/playbooks/ara.ansible-playbook.yml

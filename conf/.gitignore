@@ -1,3 +1,4 @@
 appliance.secrets.conf.yml
-wellsky-cprplus.secrets.conf.json
+wellsky-cprplus.secrets.conf.jsonnet
 appliance.domain.conf.json
+wellsky-fhir-sync.conf.jsonnet
