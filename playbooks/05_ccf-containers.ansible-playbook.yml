@@ -9,6 +9,7 @@
       git:
        name: https://{{ chp_github_account | urlencode }}:{{ chp_github_account_token | urlencode }}@github.com/CitusHealthIntegrationEngine/chie-ccf-containers.git
        dest: '{{citus_health_containers_path}}'
+       force: yes
 
     - name: Create Appliance Admin User common runtime config directory
       file:
