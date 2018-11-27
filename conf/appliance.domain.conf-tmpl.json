@@ -1,3 +1,4 @@
 {
-     domainName: "yourdomain.com"
+     domainName: "yourdomain.com",
+     customerName: "customername"
 }
