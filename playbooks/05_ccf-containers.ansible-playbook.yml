@@ -11,10 +11,13 @@
        dest: '{{citus_health_containers_path}}'
        force: yes
 
-    - name: Create Appliance Admin User common runtime config directory
+    - name: Create Appliance Admin User Common runtime config and Secrets directory
       file:
-        path: '{{ appliance_admin_user_common_runtime_config_directory }}'
+        path: "{{ item }}"
         state: directory
+      with_items:
+        - '{{ appliance_admin_user_common_runtime_config_directory }}'
+        - '{{ appliance_admin_user_secrets_directory }}' 
 
     - name: Go to Traefik directory and install Traefik routing CCF Container service
       command: chdir={{ traefik_ccf_container_path }} ccfmake start

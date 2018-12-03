@@ -58,6 +58,7 @@ dragonfly_mta_securetransfer: true
 dragonfly_mta_starttls: true
 
 appliance_admin_user_common_runtime_config_directory: "/home/{{ appliance_admin_user }}/.ccf/etc"
+appliance_admin_user_secrets_directory: "/home/{{ appliance_admin_user }}/.ccf/secrets"
 citus_health_containers_path: /opt/citus-health-containers
 wellsky_cpr_fhir_facade_path: /opt/citus-health-containers/wellsky-cpr-fhir-facade
 fhir_sync_ccf_container_path: /opt/citus-health-containers/fhir-sync-node-red
