@@ -8,7 +8,9 @@
         "citusFHIRFacadeUserName": "xxxxxxxx",
         "citusFHIRFacade": "xxxxxxxx",
         "CitusCompositionPollingFrequencyInMinutes": "1",
-        "wellSkyCPRPlusToCitusLastUpdatedTimeFile":"/data/time-config.json",
-        "wellSkyCPRPlusToCitusLogFileLocation":"/data/sync.log"
-
+        "CitusCompositionRecordDurationInMinutes": "1",
+        "wellSkyCPRPlusToCitusLastUpdatedTimeFile":"/data/last_update.json",
+        "wellSkyCPRPlusToCitusLogFileLocation":"/data/logs/",
+        "CitusToWellSkyCPRPlusLastUpdatedTimeFile":"",
+        "CitusToWellSkyCPRPlusLogFileLocation":""
 }
