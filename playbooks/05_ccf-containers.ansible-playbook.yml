@@ -36,3 +36,6 @@
 
     - name: Go to Portainer directory and install Portainer to manage the dockers installaed in the system
       command: chdir={{ portainer_ccf_container_path }} ccfmake start
+    
+    - name: Go to Grafana directory and install Grafana CCF container service
+      command: chdir={{ grafana_ccf_container_path }} ccfmake start

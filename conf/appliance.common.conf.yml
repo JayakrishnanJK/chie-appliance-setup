@@ -66,3 +66,4 @@ nextgen_mirth_connect_path: /opt/citus-health-containers/nextgen-mirth-connect
 traefik_ccf_container_path: /opt/citus-health-containers/traefik
 prometheus_ccf_container_path: /opt/citus-health-containers/prometheus
 portainer_ccf_container_path: /opt/citus-health-containers/portainer
+grafana_ccf_container_path: /opt/citus-health-containers/grafana
