@@ -6,7 +6,7 @@
         "wellSkyPatientRecordDurationInMinutes": "1",
         "citusFHIRFacadeURL": "https://fhir.optionone.sandbox.citushealth.com/3_0_1",
         "citusFHIRFacadeUserName": "xxxxxxxx",
-        "citusFHIRFacade": "xxxxxxxx",
+        "citusFHIRFacadePassword":"xxxxxxxx",
         "CitusCompositionPollingFrequencyInMinutes": "1",
         "CitusCompositionRecordDurationInMinutes": "1",
         "wellSkyCPRPlusToCitusLastUpdatedTimeFile":"/data/last_update.json",
