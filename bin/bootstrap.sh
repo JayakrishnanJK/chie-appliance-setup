@@ -32,6 +32,8 @@ sudo cp $ASF_HOME/conf/wellsky-fhir-sync.conf-tmpl.jsonnet $ASF_HOME/conf/wellsk
 title "Prepare appliance domain for traefik label configuration"
 sudo cp $ASF_HOME/conf/appliance.domain.conf-tmpl.json $ASF_HOME/conf/appliance.domain.conf.json
 
+title "Prepare grafana secrets configuration"
+sudo cp $ASF_HOME/conf/grafana.secrets.ccf-tmpl-conf.jsonnet $ASF_HOME/conf/grafana.secrets.ccf-conf.jsonnet
 
 title "Provision ARA setup playbook"
 sudo ansible-playbook -i "localhost," -c local $ASF_HOME/playbooks/ara.ansible-playbook.yml
