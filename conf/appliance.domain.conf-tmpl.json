@@ -1,5 +1,5 @@
 {
      "domainName": "yourdomain.com",
-     "customerName": "customername"
+     "customerName": "customername",
      "customerPassword": "customerpassword"
 }
