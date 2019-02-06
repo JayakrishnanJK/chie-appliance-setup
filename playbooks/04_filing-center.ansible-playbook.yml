@@ -42,33 +42,7 @@
       user: name={{ item.fstab_uid }} groups=davfs2 append=yes
       with_items: "{{ filing_centers }}"
 
-    - name: Citus Health Cups Server Integration
-      apt: 
-        name: "{{ cups_packages_to_install }}"
-
-    - name: Citus Health Cups Server Configuration update
-      replace:
-        path: /etc/cups/cupsd.conf
-        regexp: 'Listen localhost:631'
-        replace: 'Listen 631'
-        backup: yes
-    - name : Shared the default printer for all users
-      replace:
-        path: /etc/cups/printers.conf
-        regexp: 'Shared No'
-        replace: 'Shared Yes'
-        backup: yes
-
-
-    - name: Enabling remote administration of cups Server
-      command: sudo /usr/sbin/cupsctl --remote-admin
-
-    - name: Syncing data from cups directory to webdav mounted folder
-      cron:
-        name: "Syncing cups data"
-        job: "/usr/bin/rsync -avz {{ item.cups_pdf_print_storage_location }} {{ item.cups_pdf_print_storage_user_webdav_location }}"
-      with_items: "{{ cups_server  }}" 
-    
+   
 
   roles:
     - bertvv.samba
