@@ -44,4 +44,5 @@
       command: chdir={{ cups_ccf_container_path }} ccfmake start
     - name: Enabling remote administration of cups Server
       command: sudo docker exec cups /usr/sbin/cupsctl --remote-admin
+	
 	  
